@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="css/admin_login_style.css">
+    <script src="js/admin/users_data_on_admin.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="center">
+    <h1>Administrator Login</h1>
+    <form method="post" onsubmit="showAdminPage();return false;">
+        <div class="text_field">
+            <input type="text" id="admin_username" required>
+            <span></span>
+            <label>Admin Username</label>
+        </div>
+
+        <div class="text_field">
+            <input type="password" id="admin_password" required>
+            <span></span>
+            <label>Password</label>
+        </div>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <div id="ajaxContent"></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+/* Footer */
+.footer {
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    background: #333333;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 75px;
+    float: none;
+}
+
+.footer h2 {
+    color: #dddddd;
+
+}
+
+.footer p {
+    color: #dddddd;
+    margin-bottom: 0;
+}
