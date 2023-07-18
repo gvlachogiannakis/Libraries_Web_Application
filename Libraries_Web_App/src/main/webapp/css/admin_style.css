@@ -1,0 +1,137 @@
+html {
+    font-family: "Roboto Light", sans-serif;
+    background-color: #EEE0CB;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #595959, #C2847A);
+    height: 100px;
+    overflow: hidden;
+}
+
+header img {
+    float: right;
+    width: 100px;
+    height: 100px;
+    padding-right: 20px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    background: linear-gradient(120deg, #595959, #C2847A);
+    overflow: hidden;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #0C120C;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    padding: 10px;
+    color: #0C120C;
+    text-transform: uppercase;
+}
+
+.drop-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: #C2847A;
+    z-index: 1;
+}
+
+.drop-content a {
+    float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .drop-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #073B4C;
+}
+
+a:hover {
+    color: #073B4C;
+}
+
+#welcome_txt {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+#welcome_txt ul {
+    list-style-type: none;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 200px;
+}
+
+.data_table {
+    font-size: 18px;
+    position: fixed;
+    padding-top: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.data_table td {
+    text-align: center;
+}
+
+.data_table td, th {
+    padding: 30px;
+}
+
+.data_table button {
+    font-size: 18px;
+    color: #073B4C;
+    padding: 5px 15px;
+    background-color: #C2847A;
+    border-radius: 8px;
+    border: none;
+}
+
+.data_table button:hover {
+    color: #EEE0CB;
+    background-color: #073B4C;
+}
+
+#ajaxContent {
+    baackground-color: #EEE0CB;
+}
