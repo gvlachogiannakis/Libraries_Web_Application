@@ -58,6 +58,13 @@ function show_statistics(category) {
                         height: 500,
                         width: 900,
                         is3D: true,
+                        legend: {position: 'labeled'},
+                        chartArea: {
+                            left: '10%',   // Adjust the left margin as needed
+                            top: '10%',    // Adjust the top margin as needed
+                            width: '80%',  // Adjust the width as needed
+                            height: '80%'  // Adjust the height as needed
+                        }
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('ajaxContent'));
@@ -82,13 +89,16 @@ function show_statistics(category) {
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
-                    var data = google.visualization.arrayToDataTable();
+                    var fromServlet = JSON.parse(xhr.responseText);
+                    console.log(fromServlet);
+                    var data = google.visualization.arrayToDataTable(fromServlet);
+                    console.log(data);
 
                     var options = {
-                        title: '',
+                        title: 'Books per Genre',
                         height: 500,
                         width: 900,
-                        is3D: true,
+                        is3D: true
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('ajaxContent'));
@@ -98,12 +108,12 @@ function show_statistics(category) {
                 $("#ajaxContent").html("Error 500");
                 console.log("Error 500");
             } else if (xhr.status !== 200) {
-                $("#ajaxContent").html("There are no librarians on our database.");
+                $("#ajaxContent").html("There are no books on any library.");
                 console.log("Error: " + xhr.status);
             }
         }
 
-        xhr.open('GET', '');
+        xhr.open('GET', 'GetBooksPerGenre');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.send();
 

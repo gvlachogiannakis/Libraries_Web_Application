@@ -164,7 +164,7 @@ public class GeneralQueries {
         return null;
     }
 
-    public int namesOfAllBooksOfALibrary(int library_id) throws SQLException, ClassNotFoundException {
+    public int numOfAllBooksOfALibrary(int library_id) throws SQLException, ClassNotFoundException {
         int count = 0;
         String query = "  SELECT librarians.libraryname,books.isbn\n"
                 + "        FROM books,booksinlibraries,librarians\n"

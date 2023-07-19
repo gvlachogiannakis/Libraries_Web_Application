@@ -42,7 +42,7 @@ public class GetBooksPerLibrary extends HttpServlet {
             while (rs.next()) {
                 JsonArray arr = new JsonArray();
                 arr.add(rs.getString(2));
-                arr.add(gq.namesOfAllBooksOfALibrary(rs.getInt(1)));
+                arr.add(gq.numOfAllBooksOfALibrary(rs.getInt(1)));
 
                 array.add(arr);
             }
