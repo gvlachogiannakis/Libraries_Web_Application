@@ -24,6 +24,7 @@ public class DeleteLibrarian extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int librarian_id = Integer.parseInt(request.getParameter("library_id"));
+        System.out.println("lib_id: " + librarian_id);
         try (PrintWriter out = response.getWriter()) {
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();

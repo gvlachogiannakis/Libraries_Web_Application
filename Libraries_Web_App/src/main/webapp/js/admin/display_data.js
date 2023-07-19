@@ -142,14 +142,15 @@ function show_statistics(category) {
 }
 
 function delete_user(userId) {
-    if (confirm("Do you want to delete user?") == true) {
+    if (confirm("Do you want to delete user?") === true) {
         let xhr = new XMLHttpRequest();
 
         xhr.onload = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 alert("User Deleted!");
-                $("#ajaxContent").html(show_users());
+                //$("#ajaxContent").html(show_users());
             } else if (xhr.status === 500) {
+                console.log(userId);
                 $("#ajaxContent").html("Error 500");
             } else if (xhr.status !== 200) {
                 $("#ajaxContent").html("Error on deleting user.");
@@ -166,7 +167,7 @@ function delete_user(userId) {
 }
 
 function delete_librarian(libraryId) {
-    if (confirm("Do you want to delete librarian?") == true) {
+    if (confirm("Do you want to delete librarian?") === true) {
         let xhr = new XMLHttpRequest();
 
         xhr.onload = function () {

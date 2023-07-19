@@ -2,6 +2,7 @@ package servlets;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.mysql.cj.protocol.Resultset;
 import database.DB_Connection;
 
 import javax.servlet.*;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import database.tables.GeneralQueries;
 
 
 @WebServlet(name = "GetBooksPerLibrary", value = "/GetBooksPerLibrary")
@@ -24,33 +26,26 @@ public class GetBooksPerLibrary extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-
+            GeneralQueries gq = new GeneralQueries();
             JsonArray array = new JsonArray();
             JsonArray sub_arr = new JsonArray();
 
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT library_id, isbn FROM booksinlibraries");
+            ResultSet rs = stmt.executeQuery("SELECT library_id, libraryname FROM librarians");
 
-            sub_arr.add("isbn");
-            sub_arr.add("library_id");
+            sub_arr.add("library_name");
+            sub_arr.add("books");
 
             array.add(sub_arr);
 
             while (rs.next()) {
                 JsonArray arr = new JsonArray();
                 arr.add(rs.getString(2));
-                arr.add(rs.getInt(1));
-                //JsonObject object = new JsonObject();
-                //object.addProperty("library_id", rs.getInt(1));
-                //object.addProperty("isbn", rs.getString(2));
-                //array.add(object);
+                arr.add(gq.namesOfAllBooksOfALibrary(rs.getInt(1)));
+
                 array.add(arr);
-                System.out.println(arr);
             }
-
-            System.out.println(array);
-
             out.print(array);
 
         } catch (SQLException | ClassNotFoundException e) {

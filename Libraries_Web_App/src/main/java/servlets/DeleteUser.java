@@ -26,14 +26,15 @@ public class DeleteUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int user_id = Integer.parseInt(request.getParameter("userId"));
+        System.out.println("user_id: "+ user_id);
         try (PrintWriter out = response.getWriter()) {
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
-            if (stmt.executeUpdate("DELETE FROM students WHERE user_id='" + user_id + "'") != 0) {
+            /*if (stmt.executeUpdate("DELETE FROM students WHERE user_id='" + user_id + "'") != 0) {
                 System.out.println("User deleted successfully!");
             } else {
                 System.out.println("An error occurred on deleting user...");
-            }
+            }*/
 
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Exception caught!");

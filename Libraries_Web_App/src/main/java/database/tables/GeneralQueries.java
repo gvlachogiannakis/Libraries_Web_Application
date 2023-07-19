@@ -164,4 +164,30 @@ public class GeneralQueries {
         return null;
     }
 
+    public int namesOfAllBooksOfALibrary(int library_id) throws SQLException, ClassNotFoundException {
+        int count = 0;
+        String query = "  SELECT librarians.libraryname,books.isbn\n"
+                + "        FROM books,booksinlibraries,librarians\n"
+                + "        where  \n"
+                + "       booksinlibraries.isbn=books.isbn \n"
+                + "      AND librarians.library_id='" + library_id + "'\n"
+                + "      AND booksinlibraries.library_id='" + library_id + "'\n";
+
+        Connection con = DB_Connection.getConnection();
+        Statement stmt = con.createStatement();
+
+        ResultSet rs;
+        try {
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                count++;
+            }
+            return count;
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return 0;
+    }
+
 }
