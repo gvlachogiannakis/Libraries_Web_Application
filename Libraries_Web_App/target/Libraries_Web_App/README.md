@@ -141,3 +141,8 @@ Pop-Up Παραθυρα
 
 Του Google Charts
 
+(Other Notes)
+==
+
+Έχω προσθέσει μια νέα συνάρτηση στο αρχείο GeneralQueries την numOfAllBooksOfALibrary η οποία υπολογίζει τον αριθμό των βιβλίων μιας βιβλιοθήκης.
+
