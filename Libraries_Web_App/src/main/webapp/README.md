@@ -55,7 +55,7 @@ CSD4302 Γιάννης Σωμαράκης
 
 - Εμφανιση στατιστικων
 
-[users_data_on_admin.js](js%2Fadmin%2Fusers_data_on_admin.js)
+[login_out.js](js%2Fadmin%2Fusers_data_on_admin.js)
 
 - Ελεγχει password και username του admin
 
