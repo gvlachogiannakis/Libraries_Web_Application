@@ -185,9 +185,8 @@ function delete_user(userId) {
         xhr.onload = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 alert("User Deleted!");
-                //$("#ajaxContent").html(show_users());
+                $("#ajaxContent").html(show_users());
             } else if (xhr.status === 500) {
-                console.log(userId);
                 $("#ajaxContent").html("Error 500");
             } else if (xhr.status !== 200) {
                 $("#ajaxContent").html("Error on deleting user.");

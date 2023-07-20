@@ -5,7 +5,6 @@ import database.DB_Connection;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -25,16 +24,16 @@ public class DeleteUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int user_id = Integer.parseInt(request.getParameter("userId"));
-        System.out.println("user_id: "+ user_id);
-        try (PrintWriter out = response.getWriter()) {
-            Connection con = DB_Connection.getConnection();
+        int user_id = Integer.parseInt(request.getParameter("user_id"));
+
+        try (Connection con = DB_Connection.getConnection()) {
+
             Statement stmt = con.createStatement();
-            /*if (stmt.executeUpdate("DELETE FROM students WHERE user_id='" + user_id + "'") != 0) {
-                System.out.println("User deleted successfully!");
+            if (stmt.executeUpdate("DELETE FROM students WHERE user_id='" + user_id + "'") != 0) {
+                System.out.println("Student deleted successfully!");
             } else {
-                System.out.println("An error occurred on deleting user...");
-            }*/
+                System.out.println("An error occurred on deleting librarian...");
+            }
 
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Exception caught!");

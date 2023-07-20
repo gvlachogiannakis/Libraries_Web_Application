@@ -25,8 +25,7 @@ public class DeleteLibrarian extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int librarian_id = Integer.parseInt(request.getParameter("library_id"));
         System.out.println("lib_id: " + librarian_id);
-        try (PrintWriter out = response.getWriter()) {
-            Connection con = DB_Connection.getConnection();
+        try (Connection con = DB_Connection.getConnection()) {
             Statement stmt = con.createStatement();
             if (stmt.executeUpdate("DELETE FROM librarians WHERE library_id='" + librarian_id + "'") != 0) {
                 System.out.println("Librarian deleted successfully!");
