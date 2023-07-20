@@ -15,17 +15,17 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "GetBooksPerGenre", value = "/GetBooksPerGenre")
-public class GetBooksPerGenre extends HttpServlet {
+@WebServlet(name = "GetStudentsPerType", value = "/GetStudentsPerType")
+public class GetStudentsPerType extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            String query = "SELECT genre, COUNT(*) AS NumberOfBooks\n" +
-                    "FROM books\n" +
-                    "GROUP BY genre\n" +
-                    "ORDER BY NumberOfBooks DESC;\n";
+            String query = "SELECT student_type, COUNT(*) AS StudentsPerType\n" +
+                            "FROM students\n" +
+                            "GROUP BY student_type\n" +
+                            "ORDER BY StudentsPerType DESC;\n";
 
             JsonArray array = new JsonArray();
             JsonArray sub_arr = new JsonArray();
@@ -34,8 +34,8 @@ public class GetBooksPerGenre extends HttpServlet {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            sub_arr.add("genre");
-            sub_arr.add("books");
+            sub_arr.add("type");
+            sub_arr.add("numOfStudents");
 
             array.add(sub_arr);
 
@@ -51,7 +51,7 @@ public class GetBooksPerGenre extends HttpServlet {
 
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Exception caught!");
-            Logger.getLogger(GetBooksPerGenre.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(GetStudentsPerType.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 

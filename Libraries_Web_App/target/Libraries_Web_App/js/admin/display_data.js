@@ -54,16 +54,19 @@ function show_statistics(category) {
                     var data = google.visualization.arrayToDataTable(fromServlet);
                     console.log(data);
                     var options = {
+                        backgroundColor: '#EEE0CB',
                         title: 'Books per Library',
-                        height: 500,
-                        width: 900,
+                        height: 700,
+                        width: 1000,
                         is3D: true,
-                        legend: {position: 'labeled'},
+                        legend: {
+                            position: 'labeled'
+                        },
                         chartArea: {
-                            left: '10%',   // Adjust the left margin as needed
-                            top: '10%',    // Adjust the top margin as needed
-                            width: '80%',  // Adjust the width as needed
-                            height: '80%'  // Adjust the height as needed
+                            left: '15%',
+                            top: '20%',
+                            width: '80%',
+                            height: '80%'
                         }
                     };
 
@@ -95,10 +98,20 @@ function show_statistics(category) {
                     console.log(data);
 
                     var options = {
+                        backgroundColor: '#EEE0CB',
                         title: 'Books per Genre',
-                        height: 500,
-                        width: 900,
-                        is3D: true
+                        height: 700,
+                        width: 1000,
+                        is3D: true,
+                        legend: {
+                            position: 'labeled'
+                        },
+                        chartArea: {
+                            left: '15%',
+                            top: '20%',
+                            width: '80%',
+                            height: '80%'
+                        }
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('ajaxContent'));
@@ -124,11 +137,26 @@ function show_statistics(category) {
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
-                    var data = google.visualization.arrayToDataTable();
+                    var fromServlet = JSON.parse(xhr.responseText);
+                    console.log(fromServlet);
+                    var data = google.visualization.arrayToDataTable(fromServlet);
+                    console.log(data);
 
                     var options = {
-                        title: '',
+                        backgroundColor: '#EEE0CB',
+                        title: 'Students per Student type',
+                        height: 700,
+                        width: 1000,
                         is3D: true,
+                        legend: {
+                            position: 'labeled'
+                        },
+                        chartArea: {
+                            left: '15%',
+                            top: '20%',
+                            width: '80%',
+                            height: '80%'
+                        }
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('ajaxContent'));
@@ -138,15 +166,14 @@ function show_statistics(category) {
                 $("#ajaxContent").html("Error 500");
                 console.log("Error 500");
             } else if (xhr.status !== 200) {
-                $("#ajaxContent").html("There are no librarians on our database.");
+                $("#ajaxContent").html("There are no students signed up.");
                 console.log("Error: " + xhr.status);
             }
         }
 
-        xhr.open('GET', '');
+        xhr.open('GET', 'GetStudentsPerType');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.send();
-
     }
 
 }
