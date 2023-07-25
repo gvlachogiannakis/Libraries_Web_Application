@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/admin_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/admin/display_data.js" defer></script>
+    <script src="js/admin/login_out.js" defer></script>
     <script src="https://cdn.userfront.com/core.js"></script>
     <title>Admin Profile</title>
 </head>
@@ -32,7 +34,7 @@
                     </div>
                 </li>
                 <div class="navigation_l">
-                    <a class="button_l" id="button_l" href="">
+                    <a class="button_l" id="button_l" href="javascript:adminLogout()">
                         <img id="img_l" src="resources/icons8-logout-96.png">
 
                         <div class="logout">LOGOUT</div>

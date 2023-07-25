@@ -37,25 +37,28 @@ function isLoggedIn() {
     xhr.onload = function() {
         console.log("isloggedin just called...");
         if (xhr.readyState === 4 && xhr.status === 200) {
-            $("ajaxContent").html("Welcome again " + xhr.responseText);
+            alert("Welcome again " + xhr.responseText);
         }  else if (xhr.status !== 200) {
              window.location.replace('index.html');
         }
     };
 
-    xhr.open('GET', 'adminLogin');
+    xhr.open('GET', 'isLoggedIn');
     xhr.send();
 }
 
-function logout() {
+function adminLogout() {
     var xhr = new XMLHttpRequest();
 
     xhr.onload = function() {
+        console.log("logout pressed");
       if (xhr.readyState === 4 && xhr.status === 200) {
           alert("Admin successfully logged out.");
           window.location.replace('index.html');
       } else if (xhr.status !== 200) {
-          alert("Request failed! Returned status of" + xhr.status);
+          alert("Request failed! Returned status of " + xhr.status);
+      } else {
+          alert("fail, status returned " + xhr.status)
       }
     };
 
