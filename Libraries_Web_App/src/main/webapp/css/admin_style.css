@@ -40,11 +40,6 @@ header img {
     color: #0C120C;
 }
 
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
 .dropdown .dropbtn {
     font-size: 18px;
     border: none;
@@ -132,16 +127,53 @@ h1 {
     background-color: #073B4C;
 }
 
-#logout-button {
-    background-color: #C2847A;
-    color: #073B4C;
-    border: none;
-    padding: 5px 10px;
-    position: fixed;
-    right: 5px;
+.navigation_l {
+    width: 100%;
+    height: 60px;
+    background-color: #EEE0CB;
+    float: right;
 }
 
-#logout-button:hover {
-    color: #EEE0CB;
-    background-color: #073B4C;
+#img_l {
+    width: 25px;
+    float: left;
 }
+
+.logout {
+    font-size: .7em;
+    font-weight: bold;
+    position: relative;
+    right: -5px;
+    bottom: -4px;
+    overflow: hidden;
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity .45s;
+    -webkit-transition: opacity .35s;
+
+}
+
+#button_l {
+    text-decoration: none;
+    float: right;
+    padding: 15px;
+    color: black;
+    width: 25px;
+    background-color: #EEE0CB;
+    transition: width .35s;
+    -webkit-transition: width .35s;
+    overflow: hidden;
+}
+#button_l:hover {
+    width: 100px;
+}
+
+#button_l:hover .logout{
+    opacity: .9;
+}
+
+#button_l {
+    text-decoration: none;
+}
+
+

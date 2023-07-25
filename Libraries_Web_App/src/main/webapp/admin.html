@@ -19,20 +19,28 @@
             <ul>
                 <li><a href="javascript:show_users()">Users</a></li>
                 <li><a href="javascript:show_librarians()">Librarians</a></li>
-                <div class="dropdown">
-                    <button class="dropbtn">Statistics
-                        <i></i>
-                    </button>
-                    <div class="drop-content">
-                        <a href="javascript:show_statistics(1)">Books per Library</a>
-                        <a href="javascript:show_statistics(2)">Books per Genre</a>
-                        <a href="javascript:show_statistics(3)">Students per Type</a>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Statistics
+                            <i></i>
+                        </button>
+                        <div class="drop-content">
+                            <a href="javascript:show_statistics(1)">Books per Library</a>
+                            <a href="javascript:show_statistics(2)">Books per Genre</a>
+                            <a href="javascript:show_statistics(3)">Students per Type</a>
+                        </div>
                     </div>
+                </li>
+                <div class="navigation_l">
+                    <a class="button_l" id="button_l" href="">
+                        <img id="img_l" src="resources/icons8-logout-96.png">
+
+                        <div class="logout">LOGOUT</div>
+                    </a>
                 </div>
             </ul>
         </nav>
     </div>
-    <button id="logout-button" onclick="window.location.href='index.html'">Logout</button>
 
     <div id="ajaxContent">
         <div id="welcome_txt">

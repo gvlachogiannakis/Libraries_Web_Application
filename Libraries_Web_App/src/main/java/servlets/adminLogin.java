@@ -1,7 +1,5 @@
 package servlets;
 
-import database.init.Resources;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -21,21 +19,11 @@ public class adminLogin extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
-        if (username == "admin" && password == "admin12*") {
+        if (username.equals("admin") && password.equals("admin12*")) {
             session.setAttribute("loggedIn", username);
             response.setStatus(200);
         } else {
             response.setStatus(403);
         }
-        /*if (Resources.registeredUsers.containsKey(username)) {
-            if (Resources.registeredUsers.get(username).getPassword().equals(password)) {
-                session.setAttribute("loggedIn", username);
-                response.setStatus(200);
-            } else {
-                response.setStatus(403);
-            }
-        } else {
-            response.setStatus(403);
-        }*/
     }
 }
