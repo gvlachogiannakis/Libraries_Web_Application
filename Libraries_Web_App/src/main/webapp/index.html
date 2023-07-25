@@ -21,6 +21,10 @@
     <script src="js/Form/show_elements_by_type.js"></script>
     <script src="js/Books/Display_books.js"></script>
     <script src="js/Login/loginScript.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
 <body>
 <header class="header"></header>
@@ -429,7 +433,7 @@
     <h3 style="padding: 9px 22px">You are not logged in,
         so you have only Guest rights.<br>
         Sign-In if you do not have an account
-        or just logging for more rights</h3>
+        or just login for more rights</h3>
 
 
     <div>
@@ -440,6 +444,12 @@
 
     <br><br><br><br><br>
 </main>
+<h1>Our libraries locations</h1>
+<div id="Map"></div>
+<script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>
+<script src="js/Map/libs_map.js"></script>
+
+<input type = "button" onclick = "getNumOfLibs()" value = "Display">
 <!-- Footer -->
 <footer class="footer">
     <h2>© 2023 Project CS359</h2>
