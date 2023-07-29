@@ -1,12 +1,20 @@
 html {
     font-family: "Roboto Light", sans-serif;
-    background-color: #EEE0CB;
+    background-color: #CEA99A;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 header {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #595959, #C2847A);
+    background: linear-gradient(120deg, #6B6B6B, #EF8354);
+    width: 100%;
     height: 100px;
     overflow: hidden;
 }
@@ -25,7 +33,7 @@ header img {
     font-family: Arial, sans-serif;
     font-size: 18px;
     text-transform: uppercase;
-    background: linear-gradient(120deg, #595959, #C2847A);
+    background: linear-gradient(120deg, #6B6B6B, #EF8354);
     overflow: hidden;
 }
 
@@ -56,7 +64,7 @@ header img {
     display: none;
     position: absolute;
     min-width: 160px;
-    background-color: #C2847A;
+    background-color: #927162;
     z-index: 1;
 }
 
@@ -73,11 +81,11 @@ header img {
 }
 
 .dropdown:hover .dropbtn {
-    color: #073B4C;
+    color: #564256;
 }
 
 a:hover {
-    color: #073B4C;
+    color: #564256;
 }
 
 #welcome_txt {
@@ -90,15 +98,16 @@ a:hover {
     list-style-type: none;
 }
 
+
 h1 {
     text-align: center;
-    padding-bottom: 200px;
+
 }
 
 .data_table {
     font-size: 18px;
-    position: fixed;
-    padding-top: 200px;
+    position: absolute;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -115,22 +124,22 @@ h1 {
 
 .data_table button {
     font-size: 18px;
-    color: #073B4C;
+    color: #564256;
     padding: 5px 15px;
-    background-color: #C2847A;
+    background-color: #EF8354;
     border-radius: 8px;
     border: none;
 }
 
 .data_table button:hover {
-    color: #EEE0CB;
-    background-color: #073B4C;
+    color: #CEA99A;
+    background-color: #564256;
 }
 
 .navigation_l {
     width: 100%;
     height: 60px;
-    background-color: #EEE0CB;
+    background-color: #CEA99A;
     float: right;
 }
 
@@ -159,7 +168,7 @@ h1 {
     padding: 15px;
     color: black;
     width: 25px;
-    background-color: #EEE0CB;
+    background-color: #CEA99A;
     transition: width .35s;
     -webkit-transition: width .35s;
     overflow: hidden;

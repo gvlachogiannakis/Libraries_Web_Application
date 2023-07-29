@@ -21,8 +21,8 @@ public class GetLibrarians extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            out.print("<h1>Libraries</h1>");
-            out.print("<div class='data_table'><table><tr><th>Username</th><th>First Name</th><th>Last Name</th></tr>");
+            out.print("<div class=\"data_table\"><h1>Libraries</h1>");
+            out.print("<table><thead><tr><th>Username</th><th>First Name</th><th>Last Name</th></tr></thead>");
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT library_id, username, firstname, lastname FROM librarians");
