@@ -54,7 +54,7 @@ function show_statistics(category) {
                     var data = google.visualization.arrayToDataTable(fromServlet);
                     console.log(data);
                     var options = {
-                        backgroundColor: '#EEE0CB',
+                        backgroundColor: '#CEA99A',
                         title: 'Books per Library',
                         height: 700,
                         width: 1000,
@@ -98,7 +98,7 @@ function show_statistics(category) {
                     console.log(data);
 
                     var options = {
-                        backgroundColor: '#EEE0CB',
+                        backgroundColor: '#CEA99A',
                         title: 'Books per Genre',
                         height: 700,
                         width: 1000,
@@ -143,7 +143,7 @@ function show_statistics(category) {
                     console.log(data);
 
                     var options = {
-                        backgroundColor: '#EEE0CB',
+                        backgroundColor: '#CEA99A',
                         title: 'Students per Student type',
                         height: 700,
                         width: 1000,

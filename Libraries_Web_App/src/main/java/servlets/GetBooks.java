@@ -22,7 +22,7 @@ public class GetBooks extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             out.print("<h1>Books</h1>");
-            out.print("<div class='Books_table'><table><tr><th>Title</th><th>Genres</th><th>ISBN</th></tr>");
+            out.print("<table><tr><th>Title</th><th>Genres</th><th>ISBN</th></tr>");
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT title,genre,isbn FROM books");
@@ -36,7 +36,7 @@ public class GetBooks extends HttpServlet {
                 out.print(rs.getString(3));
                 out.print("</td>");
             }
-            out.print("</table></div>");
+            out.print("</table>");
 
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("exception caught");

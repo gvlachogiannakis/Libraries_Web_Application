@@ -1,9 +1,6 @@
 html {
     scroll-behavior: smooth;
-}
-
-* {
-    box-sizing: border-box;
+    font-family: "Roboto Light", sans-serif;
 }
 
 button {
@@ -14,9 +11,18 @@ button {
 
 /* Style the body */
 body {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #EEE0CB;
+    background-color: #CEA99A;
+}
+
+#show_books_btn {
+    width: 15%;
+    font-size: medium;
+}
+
+#show_books_btn:hover {
+    color: #CEA99A;
+    background-color: #564256;
 }
 
 
@@ -40,7 +46,85 @@ h1 {
 }
 
 #Map {
-    height: 600px;
+    height: 500px;
     width: 100%;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#books_table {
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+#books_table td {
+    text-align: center;
+}
+
+#books_table td, th {
+    padding: 30px;
+}
+
+.custom-popup-content {
+    width: 100px;
+    height: 50px;
+}
+
+/* Header/logo Title */
+.header {
+    width:100%;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+    font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #565656;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: left;
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.coloredRight {
+    float: right;
+    background-color: #EF8354;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #564256;
+    color: #CEA99A;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #565656;
+    height: 75px;
+}
+
+.footer h2 {
+    margin: 0;
+    color: #dddddd;
 }

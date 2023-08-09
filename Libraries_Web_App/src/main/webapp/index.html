@@ -8,9 +8,6 @@
     <link rel="icon" href="resources/books_shelf_graffiti_125860_2048x1152.jpg">
 
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/HeaderTop.css">
-    <link rel="stylesheet" href="css/TopNavigatorBar.css">
-    <link rel="stylesheet" href="css/BottomFooter.css">
     <link rel="stylesheet" href="css/LoginButton.css">
     <link rel="stylesheet" href="css/SignInButton.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -435,12 +432,8 @@
         Sign-In if you do not have an account
         or just login for more rights</h3>
 
-
-    <div>
-        <button onclick="showBooks()">Show Books</button>
-        <div id="Showing_books"></div>
-    </div>
-
+    <button id="show_books_btn" onclick="showBooks()">Show Books</button>
+    <div id="books_table"></div>
 
     <br><br><br><br><br>
 </main>
@@ -448,8 +441,6 @@
 <div id="Map"></div>
 <script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>
 <script src="js/Map/libs_map.js"></script>
-
-<input type = "button" onclick = "getNumOfLibs()" value = "Display">
 <!-- Footer -->
 <footer class="footer">
     <h2>© 2023 Project CS359</h2>
