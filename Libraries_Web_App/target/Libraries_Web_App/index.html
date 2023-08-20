@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="css/SignInButton.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="js/Form/password_reveal.js"></script>
-    <script src="js/Form/password_checker.js"></script>
-    <script src="js/Form/users_checker.js"></script>
     <script src="js/Form/show_elements_by_type.js"></script>
-    <script src="js/Books/Display_books.js"></script>
+    <script src="js/Form/form_validation.js"></script>
+    <script src="js/Books/display_books.js"></script>
     <script src="js/Login/loginScript.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,18 +29,18 @@
     <a href="adminLogIn.html">Admin</a>
     <!-- Login and SignIn Buttons -->
     <a onclick="document.getElementById('SignInPopUp_id').style.display='block'" class="coloredRight"
-       style="width:auto;">Sign-In
+       style="width:auto;">Sign Up
     </a>
     <a onclick="document.getElementById('LoginPopUp_id').style.display='block'" class="coloredRight"
        style="width:auto;">Login
     </a>
 </nav>
 <div id="SignInPopUp_id" class="SignInPopUp_class">
-    <form class="modal-content animate" action="/action_page.php" method="post">
+    <form class="modal-content animate" id="signup_form" action="SignupServlet" method="Post">
         <div class="imgcontainer">
                     <span onclick="document.getElementById('SignInPopUp_id').style.display='none'" class="close"
                           title="Close Modal">&times;</span>
-            <h1>Sing In</h1>
+            <h1>Sign Up</h1>
         </div>
         <div class="container">
             <label for="f_username"><b>Username:</b></label><br>
@@ -56,7 +54,7 @@
 
 
             <label for="f_password"><b>Password:</b></label><br>
-            <input type="password" id="f_password" name="f_password" placeholder="Ender Password" required
+            <input type="password" id="f_password" name="f_password" placeholder="Enter Password" required
                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-().&@?'#,*/&quot;+]).{8,12}"
                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 and less than 12 characters"
                    onchange="password_strength()">
@@ -96,7 +94,7 @@
             <label for="other">Other</label><br><br>
 
             <label><b>Type:</b></label><br>
-            <input id="student" name="f_type" required type="radio" value="student" onchange="checkTypeElements()">
+            <input type="radio" id="student" name="f_type" value="student" required onchange="checkTypeElements()">
             <label for="student">Student</label><br>
             <input type="radio" id="librarian" name="f_type" value="librarian" required onchange="checkTypeElements()">
             <label for="librarian">Librarian</label><br><br>
@@ -105,8 +103,7 @@
 
             <div id="beforeNode">
                 <label for="f_social_url"><b>Social Media URL:</b></label><br>
-                <input type="url" id="f_social_url" name=""
-                       pattern="https?://.+" title="Include http://"><br><br>
+                <input type="url" id="f_social_url" name="f_social_url" pattern="https?://.+" title="Include http://"><br><br>
 
                 <!-- All countries -->
                 <label for="country"><b>Country:</b></label><br><select id="country" name="f_country">
@@ -405,8 +402,7 @@
             <input type="text" id="username_login" placeholder="Enter Username" name="username_login" value="" required>
 
             <label for="password_login"><b>Password</b></label>
-            <input type="password" id="password_login" placeholder="Enter Password" name="password_login" value=""
-                   required>
+            <input type="password" id="password_login" placeholder="Enter Password" name="password_login" value="" required>
 
             <label><b>Type:</b></label><br>
             <input type="radio" id="studentLogin" name="f_type_login" value="students" required>
@@ -427,20 +423,24 @@
 </div>
 <!-- Main -->
 <main>
-    <h3 style="padding: 9px 22px">You are not logged in,
-        so you have only Guest rights.<br>
-        Sign-In if you do not have an account
-        or just login for more rights</h3>
+    <div id="main_content">
+        <h3 style="padding: 9px 22px">You are not logged in,
+            so you have only Guest rights.<br>
+            Sign-In if you do not have an account
+            or just login for more rights</h3>
 
-    <button id="show_books_btn" onclick="showBooks()">Show Books</button>
-    <div id="books_table"></div>
+        <button id="show_books_btn" onclick="showBooks()">Show Books</button>
+        <div id="books_table"></div>
 
-    <br><br><br><br><br>
+        <br><br><br><br><br>
+
+        <h1>Our libraries locations</h1>
+        <div id="Map"></div>
+        <script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>
+        <script src="js/Map/libs_map.js"></script>
+    </div>
 </main>
-<h1>Our libraries locations</h1>
-<div id="Map"></div>
-<script src="http://openlayers.org/api/2.13.1/OpenLayers.js"></script>
-<script src="js/Map/libs_map.js"></script>
+
 <!-- Footer -->
 <footer class="footer">
     <h2>© 2023 Project CS359</h2>

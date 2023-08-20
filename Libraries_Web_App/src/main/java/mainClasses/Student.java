@@ -12,9 +12,7 @@ import mainClasses.User;
  *
  * @author Mike
  */
-public class Student extends User{
-    
-    
+public class Student extends User {
 
     int user_id;
     String student_id;

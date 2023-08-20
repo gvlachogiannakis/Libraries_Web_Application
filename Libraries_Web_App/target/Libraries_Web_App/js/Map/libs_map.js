@@ -29,19 +29,16 @@ xhr.onreadystatechange = function() {
         var coordinates = JSON.parse(xhr.responseText);
 
         coordinates.forEach(c => {
-            console.log("lat: " + c.lat + ", lon: " + c.lon + ", name: " + c.name);
-
             var position = setPosition(c.lat, c.lon);
             var mar = new OpenLayers.Marker(position);
             markers.addMarker(mar);
             mar.events.register('mousedown', mar, function(evt){ handler(position, c.name)});
         });
 
-
-
         var position = setPosition(coordinates[0].lat, coordinates[0].lon);
         const zoom = 10;
         map.setCenter(position, zoom);
     }
 };
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 xhr.send();

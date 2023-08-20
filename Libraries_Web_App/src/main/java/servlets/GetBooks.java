@@ -21,8 +21,7 @@ public class GetBooks extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            out.print("<h1>Books</h1>");
-            out.print("<table><tr><th>Title</th><th>Genres</th><th>ISBN</th></tr>");
+            out.print("<table><tr><th>Title</th><th>Genre</th><th>ISBN</th></tr>");
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT title,genre,isbn FROM books");

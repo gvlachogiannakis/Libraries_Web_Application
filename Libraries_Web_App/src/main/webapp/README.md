@@ -59,7 +59,7 @@ CSD4302 Γιάννης Σωμαράκης
 
 - Ελεγχει password και username του admin
 
-[Display_books.js](js%2FBooks%2FDisplay_books.js)
+[display_books.js](js%2FBooks%2FDisplay_books.js)
 
 - Request για εμφανηση Βιβλιων στον Guest
 

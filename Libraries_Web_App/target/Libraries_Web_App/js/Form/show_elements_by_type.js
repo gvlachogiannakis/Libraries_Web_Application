@@ -32,15 +32,15 @@ function showStudentElements() {
         <p id="dates_message"></p>
 
         <label><b>If a Student choose level:</b></label><br>
-        <input type="radio" id="f_crete_uni" name="f_student_level" value="University_Of_Crete" onchange="checkUsers()">
-        <label for="f_crete_uni">University Of Crete</label><br>
-        <input type="radio" id="f_crete_elmepa" name="f_student_level" value="EL_ME_PA" onchange="checkUsers()">
-        <label for="f_crete_elmepa">EL.ME.PA</label><br>
+        <input type="radio" id="f_crete_uni" name="f_student_level" value="UOC" onchange="checkUsers()">
+        <label for="f_crete_uni">UOC</label><br>
+        <input type="radio" id="f_crete_elmepa" name="f_student_level" value="HELMEPA" onchange="checkUsers()">
+        <label for="f_crete_elmepa">HELMEPA</label><br>
         <input type="radio" id="f_crete_tuc" name="f_student_level" value="TUC" onchange="checkUsers()">
-        <label for="f_crete_tuc">Technical University of CRETE</label><br><br>
+        <label for="f_crete_tuc">TUC</label><br><br>
 
-        <label for="department"><b>Department</b></label><br>
-        <input type="text" id="department" value=""><br><br>
+        <label for="f_department"><b>Department</b></label><br>
+        <input type="text" id="f_department" name="f_department" value=""><br><br>
     
     `;
     document.getElementById("typeDiv").appendChild(newDiv);
@@ -60,10 +60,10 @@ function showLibrarianElements() {
     newDiv.innerHTML = `
     
         <label for="libraryname"><b>Library Name</b></label><br>
-        <input type="text" id="libraryname" value=""><br><br>
+        <input type="text" id="libraryname" name="f_libraryname" value=""><br><br>
         
         <label for="libraryinfo"><b>Library Infos</b></label><br>
-        <textarea id="libraryinfo"></textarea><br><br>
+        <textarea id="libraryinfo" name="f_libraryinfo"></textarea><br><br>
     
     `;
     document.getElementById("typeDiv").appendChild(newDiv);

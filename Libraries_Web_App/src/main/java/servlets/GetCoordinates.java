@@ -33,14 +33,11 @@ public class GetCoordinates extends HttpServlet {
                 double lat = rs.getDouble("lat");
                 double lon = rs.getDouble("lon");
                 String name = rs.getString("libraryname");
-                System.out.println("--- " + name + " ---");
                 coordinates.add(new Coordinate(lat, lon, name));
             }
 
             Gson gson = new Gson();
             String json = gson.toJson(coordinates);
-
-            System.out.println(json);
 
             out.print(json);
 

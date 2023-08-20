@@ -2,7 +2,6 @@ function showBooks() {
     const xhr = new XMLHttpRequest();
 
     xhr.onload = function () {
-        console.log("showBooks Call");
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById("books_table").innerHTML = xhr.responseText;
         } else if (xhr.status !== 200) {
