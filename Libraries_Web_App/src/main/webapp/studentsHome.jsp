@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/HeaderTop.css">
     <link rel="stylesheet" href="css/TopNavigatorBar.css">
+
+    <script src="js/users/students/logout.js"></script>
 </head>
 <body>
 <%
@@ -20,20 +22,6 @@
     <a onclick="logout()" class="coloredRight"
        style="width:auto;">Logout
     </a>
-    <script>function logout() {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                var data = xhr.responseText;
-                alert(data);
-            }
-        }
-        xhr.open('GET', 'Logout');
-        xhr.send();
-        window.location.replace("loggedout.jsp");
-    }
-
-    </script>
 </nav>
 
 

@@ -4,14 +4,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.*;
-import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import java.net.*;
-import com.google.gson.*;
 import mainClasses.Student;
 import mainClasses.Librarian;
+import mainClasses.GetCoordinates;
 import database.tables.EditStudentsTable;
 import database.tables.EditLibrarianTable;
 
@@ -44,12 +42,29 @@ public class SignupServlet extends HttpServlet {
             new_user.setAddress(request.getParameter("f_address"));
             new_user.setTelephone(request.getParameter("f_phone_num"));
 
-            new_user.setLat(0.0);
-            new_user.setLon(0.0);
+            String address = "\"" + new_user.getAddress() +  "\"";
 
-            EditStudentsTable new_usr = new EditStudentsTable();
+            GetCoordinates latLon = new GetCoordinates();
+            latLon.getResults(address);
+
+            if (latLon.getLength() > 0) {
+                double latitude = latLon.getLat();
+                double longitude = latLon.getLon();
+
+                new_user.setLat(latitude);
+                new_user.setLon(longitude);
+
+                System.out.println("Latitude: " + latitude);
+                System.out.println("Longitude: " + longitude);
+            } else {
+                System.out.println("Address could not be bound. No coordinates returned.");
+
+                new_user.setLat(0.0);
+                new_user.setLon(0.0);
+            }
 
             try {
+                EditStudentsTable new_usr = new EditStudentsTable();
                 new_usr.addNewStudent(new_user);
             } catch (ClassNotFoundException e) {
                 System.out.println("Exception caught! (Sign up java servlet)");
@@ -76,48 +91,29 @@ public class SignupServlet extends HttpServlet {
             new_lib.setTelephone(request.getParameter("f_phone_num"));
             new_lib.setAddress(request.getParameter("f_address"));
 
-            String address = "\"" + new_lib.getAddress() + ", " + new_lib.getCity() + ", " + new_lib.getCountry() + "\"";
-            try {
-                address = URLEncoder.encode(address, "UTF-8");
-                String apiUrl = "https://nominatim.openstreetmap.org/search?q=" + address + "&format=json&addressdetails=1";
+            String address = "\"" + new_lib.getAddress() +  "\"";
 
-                URL url = new URL(apiUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
+            GetCoordinates latLon = new GetCoordinates();
+            latLon.getResults(address);
 
-                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String inputLine;
-                StringBuilder content = new StringBuilder();
-                while ((inputLine = in.readLine()) != null) {
-                    content.append(inputLine);
-                }
-                in.close();
+            if (latLon.getLength() > 0) {
+                double latitude = latLon.getLat();
+                double longitude = latLon.getLon();
 
-                Gson gson = new Gson();
-                NominatimResult[] results = gson.fromJson(content.toString(), NominatimResult[].class);
+                new_lib.setLat(latitude);
+                new_lib.setLon(longitude);
 
-                if (results.length > 0) {
-                    double latitude = results[0].lat;
-                    double longitude = results[0].lon;
+                System.out.println("Latitude: " + latitude);
+                System.out.println("Longitude: " + longitude);
+            } else {
+                 System.out.println("Address could not be bound. No coordinates returned.");
 
-                    new_lib.setLat(latitude);
-                    new_lib.setLon(longitude);
-
-                    System.out.println("Latitude: " + latitude);
-                    System.out.println("Longitude: " + longitude);
-                } else {
-                    System.out.println("No coordinates returned.");
-
-                    new_lib.setLat(0.0);
-                    new_lib.setLon(0.0);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+                 new_lib.setLat(0.0);
+                 new_lib.setLon(0.0);
             }
 
-            EditLibrarianTable lib = new EditLibrarianTable();
-
             try {
+                EditLibrarianTable lib = new EditLibrarianTable();
                 lib.addNewLibrarian(new_lib);
             } catch (ClassNotFoundException e) {
                 System.out.println("Exception caught! (Sign up java servlet)");
@@ -130,11 +126,5 @@ public class SignupServlet extends HttpServlet {
         out.println("alert('User successfully signed up, login to view your page.');");
         out.println("window.location.replace(\"index.html\");");
         out.println("</script>");
-    }
-
-    // Define the data structure that matches the JSON response from the API
-    public class NominatimResult {
-        double lat;
-        double lon;
     }
 }
