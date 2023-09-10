@@ -104,14 +104,15 @@ h1 {
 
 }
 
+#ajaxContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Adjust as needed to control the height of the container */
+}
+
 .data_table {
     font-size: 18px;
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
 }
 
 .data_table td {
@@ -185,4 +186,15 @@ h1 {
     text-decoration: none;
 }
 
+#userWelcome {
+    padding-bottom: 80px;
+    font-size: 18px;
+    text-align: center;
+}
+
+caption {
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
 

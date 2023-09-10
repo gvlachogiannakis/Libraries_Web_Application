@@ -37,7 +37,7 @@ function isLoggedIn() {
     xhr.onload = function() {
         console.log("isloggedin just called...");
         if (xhr.readyState === 4 && xhr.status === 200) {
-            alert("Welcome again " + xhr.responseText);
+            alert("Welcome again");
         }  else if (xhr.status !== 200) {
              window.location.replace('index.html');
         }

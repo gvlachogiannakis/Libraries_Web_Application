@@ -44,6 +44,13 @@ body {
     z-index: 1;
 }
 
+#ajaxContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Adjust as needed to control the height of the container */
+}
+
 #books_table {
     font-size: 18px;
     z-index: 2;

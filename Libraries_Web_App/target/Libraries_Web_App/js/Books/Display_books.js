@@ -3,12 +3,13 @@ function showBooks() {
 
     xhr.onload = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById("books_table").innerHTML = xhr.responseText;
+            console.log(xhr.responseText);
+            $("#ajaxContent").html(xhr.responseText);
         } else if (xhr.status !== 200) {
-            document.getElementById("books_table").innerHTML = "There are no users on our database.";
+            $("#ajaxContent").html("There are no users on our database.");
             console.log("Error: " + xhr.status);
         } else if (xhr.status === 500) {
-            document.getElementById("books_table").innerHTML = "Error 500";
+            $("#ajaxContent").html("Error 500");
             console.log("Error 500");
         } else {
             console.log("General error...");

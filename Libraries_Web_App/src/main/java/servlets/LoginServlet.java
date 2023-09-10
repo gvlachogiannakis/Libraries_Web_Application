@@ -17,6 +17,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import database.tables.EditStudentsTable;
+
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
@@ -27,8 +29,11 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("username_login");
             String password = request.getParameter("password_login");
             String type = request.getParameter("f_type_login");
+            EditStudentsTable student = new EditStudentsTable();
 
             System.out.println(username + " " + password + " " + type);
+
+            String info = student.databaseStudentToJSON(username, password);
 
             Connection con = DB_Connection.getConnection();
             Statement stmt = con.createStatement();
@@ -42,6 +47,8 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("correct input");
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                session.setAttribute("type", type);
+                session.setAttribute("loggedIn", username);
                 response.setStatus(200);
             } else {
                 System.out.println("wrong input");

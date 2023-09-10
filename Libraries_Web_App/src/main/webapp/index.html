@@ -18,6 +18,7 @@
     <script src="js/Login/loginScript.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
 
 </head>
@@ -380,7 +381,7 @@
                 <label for="f_accept_terms"><b>I accept Terms and Conditions</b></label>
                 <input type="checkbox" id="f_accept_terms" name="f_accept_terms" required><br><br>
             </div>
-            <button type="submit">Sign up CS359 Form</button>
+            <button type="submit" id="submit_button">Sign up CS359 Form</button>
         </div>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('SignInPopUp_id').style.display='none'"
@@ -430,8 +431,7 @@
             or just login for more rights.</h3>
 
         <button id="show_books_btn" onclick="showBooks()">Show Books</button>
-        <div id="books_table"></div>
-
+        <div id="ajaxContent"></div>
         <br><br><br><br><br>
 
         <h1>Our libraries locations</h1>

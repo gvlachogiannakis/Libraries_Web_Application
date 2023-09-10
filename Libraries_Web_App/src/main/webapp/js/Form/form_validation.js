@@ -1,3 +1,5 @@
+var submitButton = document.getElementById("submit_button");
+
 function checkPassword() {
     let password1 = document.querySelector("#f_password").value;
     let password2 = document.querySelector("#f_password_repeat").value;
@@ -49,7 +51,6 @@ function checkUsers() {
     let type = document.getElementsByName('f_type');
     let finalType;
 
-
     for (let i = 0; i < type.length; i++) {
         if (type[i].checked)
             finalType = type[i].value;
@@ -57,7 +58,7 @@ function checkUsers() {
 
     if (finalType === "student") {
         let type_education = document.getElementsByName('f_student_level');
-        let finalEducation
+        let finalEducation;
 
         let email = document.querySelector("#f_email").value;
 
@@ -100,7 +101,7 @@ function checkUsers() {
             }
         } else {
             document.getElementById("dates_message").innerHTML = "<style> #dates_message {color: red;}</style>Wrong Dates";
-            console.log("Wrong Dates")
+            console.log("Wrong Dates");
         }
     }
 }
