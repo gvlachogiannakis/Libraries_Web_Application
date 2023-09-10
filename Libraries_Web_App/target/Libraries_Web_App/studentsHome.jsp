@@ -5,13 +5,14 @@
     <title>Student Page</title>
 
     <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="css/profilePage.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
-    <script src="js/users/students/logout_in.js"></script>
+    <script src="js/users/logout_in.js"></script>
     <script src="js/Books/display_books.js"></script>
-    <script src="js/users/students/logout_in.js"></script>
-    <script src="js/users/students/showPersonalInfo.js" defer></script>
+    <script src="js/users/logout_in.js"></script>
+    <script src="js/users/showPersonalInfo.js" defer></script>
 
     <script>
         const username = "<%=session.getAttribute("username")%>";
@@ -33,6 +34,8 @@
                     <li><a href="studentsHome.jsp">Home</a></li>
                     <li><a href="javascript:editProfile()">Edit Profile</a></li>
                     <li><a href="javascript:showBooks()">See Books</a></li>
+                    <li><a href="javascript:searchBook()">Search Book</a></li>
+                    <li><a href="javascript:bookReview()">Book Review</a></li>
 
                     <div class="navigation_l">
                         <a class="button_l" id="button_l" href="javascript:userLogout()">
@@ -47,9 +50,6 @@
 
         <div id="userWelcome">Welcome ${username}, now you can see all of the information about your profile
                               and also you can modify some of your personal information</div>
-
-        <button>Search book</button>
-        <button>Book Review</button>
 
         <div id="ajaxContent"></div>
     </main>

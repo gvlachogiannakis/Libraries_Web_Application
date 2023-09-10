@@ -50,6 +50,17 @@ public class EditLibrarianTable {
         stmt.executeUpdate(update);
     }
 
+    public void updateLibrarianFromJson(String json) throws SQLException, ClassNotFoundException {
+        Gson gson = new Gson();
+        Student user = gson.fromJson(json, Student.class);
+
+        Connection con = DB_Connection.getConnection();
+        Statement stmt = con.createStatement();
+        String update = "UPDATE librarians SET password='" + user.getPassword() + "', firstname='" + user.getFirstname() + "', lastname='" + user.getLastname() + "', telephone='" + user.getTelephone() + "', personalpage='" + user.getPersonalpage() + "' WHERE username = '" + user.getUsername() + "'";
+
+        stmt.executeUpdate(update);
+    }
+
     public void printLibrarianDetails(String username, String password) throws SQLException, ClassNotFoundException {
         Connection con = DB_Connection.getConnection();
         Statement stmt = con.createStatement();

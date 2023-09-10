@@ -51,7 +51,7 @@ body {
     height: 100%; /* Adjust as needed to control the height of the container */
 }
 
-#books_table {
+#data_table {
     font-size: 18px;
     z-index: 2;
     overflow: auto;
@@ -62,11 +62,11 @@ body {
     align-items: center;
 }
 
-#books_table td {
+#data_table td {
     text-align: center;
 }
 
-#books_table td, th {
+#data_table td, th {
     padding: 30px;
 }
 

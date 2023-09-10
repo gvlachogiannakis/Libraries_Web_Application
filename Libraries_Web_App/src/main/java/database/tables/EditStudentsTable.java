@@ -54,6 +54,18 @@ public class EditStudentsTable {
         stmt.executeUpdate(update);
     }
 
+    public void updateStudentFromJson(String json) throws SQLException, ClassNotFoundException {
+        Gson gson = new Gson();
+        Student user = gson.fromJson(json, Student.class);
+
+
+        Connection con = DB_Connection.getConnection();
+        Statement stmt = con.createStatement();
+        String update = "UPDATE students SET password='" + user.getPassword() + "', firstname='" + user.getFirstname() + "', lastname='" + user.getLastname() + "', telephone='" + user.getTelephone() + "', personalpage='" + user.getPersonalpage() + "' WHERE username = '" + user.getUsername() + "'";
+
+        stmt.executeUpdate(update);
+    }
+
     public void printStudentDetails(String username, String password) throws SQLException, ClassNotFoundException {
         Connection con = DB_Connection.getConnection();
         Statement stmt = con.createStatement();
@@ -207,37 +219,4 @@ public class EditStudentsTable {
             Logger.getLogger(EditStudentsTable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    /*public List<Student> getAllStudents() throws SQLException, ClassNotFoundException {
-        Connection con = DB_Connection.getConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs;
-
-        Student user = new Student();
-        List<Student> students = new ArrayList<Student>();
-
-        try {
-            rs = stmt.executeQuery("SELECT username, firstname, lastname FROM students");
-            while (rs.next()) {
-                String json = DB_Connection.getResultsToJSON(rs);
-
-                //Gson gson = new Gson();
-                //Student user = gson.fromJson(json, Student.class);
-                //System.out.println(user);
-                user.setUsername(rs.getString("username"));
-                user.setFirstname(rs.getString("firstname"));
-                user.setLastname(rs.getString("lastname"));
-                System.out.println(user.getUsername() + user.getFirstname() + user.getLastname());
-                students.add(user);
-            }
-        } catch (Exception e) {
-            System.err.println("Exception caught! ");
-            System.err.println(e.getMessage());
-        }
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Showing users: " + students.get(i).getFirstname());
-        }
-        return students;
-    }*/
-
 }

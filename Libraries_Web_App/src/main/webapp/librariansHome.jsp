@@ -5,18 +5,20 @@
     <title>Librarian Page</title>
 
     <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="css/profilePage.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
-    <script src="js/users/students/logout_in.js"></script>
+    <script src="js/users/logout_in.js"></script>
     <script src="js/Books/display_books.js"></script>
-    <script src="js/users/students/logout_in.js"></script>
+    <script src="js/users/logout_in.js"></script>
     <script src="js/users/librarians/addBook.js"></script>
-    <script src="js/users/students/showPersonalInfo.js" defer></script>
+    <script src="js/users/showPersonalInfo.js" defer></script>
 
     <script>
         const username = "<%=session.getAttribute("username")%>";
         const type = "<%=session.getAttribute("type")%>";
+        let library_id = "<%=session.getAttribute("library_id")%>";
     </script>
 </head>
 <body>
@@ -32,6 +34,7 @@
         <nav class="nav_bar">
             <ul>
                 <li><a href="librariansHome.jsp">Home</a></li>
+                <li><a href="javascript:editProfile()">Edit Profile</a></li>
                 <li><a href="javascript:showBooks()">See Books</a></li>
                 <li><a href="javascript:addBook()">Add Books</a></li>
 
@@ -46,8 +49,7 @@
         </nav>
     </div>
 
-    <div id="userWelcome">Welcome ${username}, now you can see all of the information about your profile
-        and also you can modify some of your personal information</div>
+    <div id="userWelcome"></div>
 
     <div id="ajaxContent"></div>
 </main>

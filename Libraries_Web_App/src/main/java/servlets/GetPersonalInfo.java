@@ -30,8 +30,6 @@ public class GetPersonalInfo extends HttpServlet {
                 data = info.databaseStudentToJSON(username);
             }
 
-            System.out.println(data);
-
             out.print(data);
 
             response.setStatus(200);

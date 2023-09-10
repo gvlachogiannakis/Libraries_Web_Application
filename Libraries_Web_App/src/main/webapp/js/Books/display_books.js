@@ -5,6 +5,7 @@ function showBooks() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             console.log(xhr.responseText);
             $("#ajaxContent").html(xhr.responseText);
+            $("#userWelcome").html("");
         } else if (xhr.status !== 200) {
             $("#ajaxContent").html("There are no users on our database.");
             console.log("Error: " + xhr.status);

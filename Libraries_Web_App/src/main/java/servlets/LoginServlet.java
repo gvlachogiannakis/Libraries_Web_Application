@@ -44,7 +44,6 @@ public class LoginServlet extends HttpServlet {
                     "' AND password='" + password + "'");
 
             if (rs.next()) {
-                System.out.println("correct input");
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
                 session.setAttribute("type", type);

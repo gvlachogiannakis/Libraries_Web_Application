@@ -10,7 +10,7 @@ CSD4302 Γιάννης Σωμαράκης
 
 [GetBooksPerLibrary.java](..%2Fjava%2Fservlets%2FGetBooksPerLibrary.java)
 
-- Παιρνει το βιβλια απο την καθε βιβλιοθηκη επιστρεθει πληρογορια JSON για το GoogleChart
+- Παιρνει το βιβλια απο την καθε βιβλιοθηκη επιστρεφει πληρογορια JSON για το GoogleChart
 
 [DeleteLibrarian.java](..%2Fjava%2Fservlets%2FDeleteLibrarian.java)
 
