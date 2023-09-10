@@ -1,0 +1,43 @@
+html {
+    font-size: 18px;
+}
+
+#userWelcome {
+    text-align: center;
+    padding: 10px;
+}
+
+caption {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type=text], input[type=number], input[type=tel],
+input[type=url], input[type=password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #EF8354;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    border-radius: 15px;
+}
