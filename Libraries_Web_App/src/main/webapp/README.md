@@ -1,7 +1,6 @@
 CSD3922 Γιάννης Βλαχογιαννάκης
 ==
-CSD4302 Γιάννης Σωμαράκης
-==
+
 
 
 
@@ -139,7 +138,7 @@ Pop-Up Παραθυρα
 (APIs)
 ==
 
-Του Google Charts
+Του Google Charts και το Open Street Maps μαζι με το nominatim για τον χαρτη και τον υπολογισμο των συντεταγμενων
 
 (Other Notes)
 ==
